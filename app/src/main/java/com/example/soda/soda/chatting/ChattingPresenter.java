@@ -81,8 +81,6 @@ public class ChattingPresenter implements ChattingContract.Presenter, EMMessageL
             //当前页面只关心聊天信息
             switch (message.getChatType()){
                 case Chat:
-                    long l = message.localTime();
-                    long getcurrentTime = System.currentTimeMillis();
                     long msgTime = message.getMsgTime();//msgTime/1000为秒
                     switch (message.getType()){
                         case TXT:

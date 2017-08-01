@@ -8,7 +8,7 @@
         android:id="@+id/menu_top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent">
+        android:background="@color/chatTingTheme">
        <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent">
@@ -36,24 +36,46 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"/>
 
         <EditText
             android:id="@+id/chat_input_text_chatting_activity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+            android:layout_weight="1"
+            android:visibility="gone"/>
         <Button
             android:id="@+id/chat_send_button_chatting_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="发送"/>
+
+        <com.example.soda.soda.my_view.AudioRecorderButton
+            android:id="@+id/chat_send_audio_button_chatting_activity"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/str_recorder_normal"
+            android:textColor="#727272"
+            android:minHeight="0dp"
+            android:background="@drawable/btn_recorder_normal" />
+
     </LinearLayout>
     <android.support.v7.widget.Toolbar
         android:id="@+id/menu_bottom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent">
+        android:background="@color/chatTingTheme">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

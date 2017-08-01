@@ -59,7 +59,7 @@ public class ChattingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         ButterKnife.bind(this);
-
+        checkAudioPermission();
 
         mFragment = (ChattingFragment) getSupportFragmentManager().findFragmentById(R.id.chatting_content_fragment);
         if (mFragment == null){
@@ -79,9 +79,24 @@ public class ChattingActivity extends AppCompatActivity {
 
         chatTo.setText(mFragment.getmChattingToUserId());
     }
+    //TODO 检查有没有录制权限
+    private void checkAudioPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) !=
+                PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{
+                    Manifest.permission.RECORD_AUDIO
+            },3);
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            },4);
+        }
+    }
 
     @OnClick(R2.id.chat_send_button_chatting_activity)
-    void send(View view){
+    void sendTxtButton(View view){
         String inputContent = inputText.getText().toString();
         if (inputContent.length() == 0){
             Toast.makeText(this,"您好像忘了输入内容，我还没学会读心术哦！",Toast.LENGTH_SHORT).show();
@@ -90,6 +105,10 @@ public class ChattingActivity extends AppCompatActivity {
             Log.e("chatTo",mFragment.getmChattingToUserId());
             mPresenter.SendMessage(mFragment.getmChattingToUserId(),inputContent,EMMessage.Type.TXT);
         }
+    }
+    @OnClick(R2.id.chat_send_audio_button_chatting_activity)
+    void sendAudioButton(View view){
+
     }
 
     public static final int REQUESTCODE_GETPHOTO = 1;
@@ -100,7 +119,7 @@ public class ChattingActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUESTCODE_GETPHOTO);
     }
 
-
+    //TODO 图片发送功能还需要进行进一步封装
     @OnClick(R2.id.menu_bottom_taking_pic)
     void takingPicture(View view){
         if (ContextCompat.checkSelfPermission(ChattingActivity.this, Manifest.permission.CAMERA) !=

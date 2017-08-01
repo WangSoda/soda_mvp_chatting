@@ -96,7 +96,7 @@ public class ChatListFragment extends BaseFragment implements ChatListContract.V
             EMConversation conversation = conversationMap.get(fromUserId);
             String conversationId = conversation.conversationId();
             EMMessage messageFromOthers = conversation.getLatestMessageFromOthers();
-            if (messageFromOthers == null)continue;
+            if (messageFromOthers == null)continue;//若联系人无消息返回，此处会出现null对象
 
             int unreadMsgCount = conversation.getUnreadMsgCount();
             EMMessage lastMessage = conversation.getLastMessage();

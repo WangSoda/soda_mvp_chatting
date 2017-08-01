@@ -126,6 +126,7 @@ public class ChattingFragment extends Fragment implements ChattingContract.View{
     }
 
     private void addImageToAdapterList(String fromUserId, String thumbnailUrl, long msgTime, Type type) {
+        if (mChattingTimeList.contains(msgTime))return;
         mChattingTypeMap.put(msgTime,type);
         mChattingUsersMap.put(msgTime,fromUserId);
         mChattingIMAGEUrlMap.put(msgTime,thumbnailUrl);
@@ -140,6 +141,7 @@ public class ChattingFragment extends Fragment implements ChattingContract.View{
      * @param msgTime
      */
     void addTxtToAdapterList(String fromUserId, String txtContent, long msgTime, Type type){
+        if (mChattingTimeList.contains(msgTime))return;
         mChattingTypeMap.put(msgTime,type);
         mChattingUsersMap.put(msgTime,fromUserId);
         mChattingTXTContentsMap.put(msgTime,txtContent);

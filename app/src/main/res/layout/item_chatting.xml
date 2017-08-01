@@ -57,12 +57,13 @@
                 <ImageView
                     android:id="@+id/chat_image_mine_chatting_fragment_item"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    />
                 <ImageView
                     android:id="@+id/logo_mine_chatting_fragment_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/icon"/>
             </LinearLayout>
 
         </FrameLayout>
