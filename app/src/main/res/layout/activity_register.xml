@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.soda.soda.register.RegisterActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册界面"
+        android:textSize="40dp" />
+
+    <EditText
+        android:id="@+id/user_id_edit_text_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="账号" />
+
+    <EditText
+        android:id="@+id/user_pwd_edit_text_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="密码" />
+
+    <Button
+        android:id="@+id/regester_btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册"/>
+
+</LinearLayout>
